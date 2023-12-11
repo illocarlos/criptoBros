@@ -9,7 +9,6 @@ export default function useCripto() {
     const cripto = ref([])
 
 
-
     const cotizar = reactive({
         moneda: "",
         criptoMoneda: ""
@@ -33,7 +32,7 @@ export default function useCripto() {
         cotizar,
         cripto,
         cotizacion,
-        cargando
+        cargando,
     }
 
 

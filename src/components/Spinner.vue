@@ -11,7 +11,7 @@
 
 <style scoped>
 .sk-folding-cube {
-  margin: 20px auto;
+  margin: 29px auto;
   width: 40px;
   height: 40px;
   position: relative;
@@ -28,6 +28,20 @@
       -ms-transform: scale(1.1);
           transform: scale(1.1); 
 }
+
+
+.sk-cube1:before {
+ background-color: rgb(1, 255, 255);
+}
+.sk-cube2:before {
+ background-color: rgb(3, 171, 171);
+}
+.sk-cube3:before {
+ background-color: rgb(4, 117, 117);
+}
+.sk-cube4:before {
+ background-color: rgb(1, 72, 72);
+}
 .sk-folding-cube .sk-cube:before {
   content: '';
   position: absolute;
@@ -35,7 +49,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #333;
   -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
           animation: sk-foldCubeAngle 2.4s infinite linear both;
   -webkit-transform-origin: 100% 100%;

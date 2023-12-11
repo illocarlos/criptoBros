@@ -1,12 +1,11 @@
 <script setup>
-import { computed, onMounted,reactive, ref } from "vue";
+import { computed, onMounted,reactive, ref, watch } from "vue";
 import Alert from './components/Alert.vue';
 import Spinner from "./components/Spinner.vue";
 import useCripto from './composables/useCripto'
 import CriptoCom from "./components/CriptoCom.vue";
 
 const{ monedas, cotizar, cripto, cotizacion,cargando }=useCripto()
-
 const error = ref("")
 
 const Cotizaciones = () => {
@@ -18,7 +17,11 @@ const Cotizaciones = () => {
 obtenerCotizacion()
 }
 
+
+
+
 const obtenerCotizacion = async () => {
+  
   cargando.value = true
   cotizacion.value = {}
   const { moneda, criptoMoneda } = cotizar
@@ -27,8 +30,9 @@ const obtenerCotizacion = async () => {
   const respuesta = await fetch(url)
   const data = await respuesta.json()
   setTimeout(() => {
-  cotizacion.value= data.DISPLAY[criptoMoneda][moneda]
-  cargando.value = false
+    cotizacion.value= data.DISPLAY[criptoMoneda][moneda]
+  
+    cargando.value = false
 },3000)
 }
 const monstrarResultado = computed(() => {
@@ -73,14 +77,17 @@ const monstrarResultado = computed(() => {
   @click.prevent="Cotizaciones"
 type="submit" value="cotizar">cotizar</button>
 </form>
-  <Spinner
+  <Spinner class="spiner"
   v-if="cargando"
   />
 
 <CriptoCom
+
    v-if="monstrarResultado > 0"
    :cotizacion="cotizacion"
-/>
+   />
+
+
 </div>
 </div>
 

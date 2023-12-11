@@ -1,22 +1,28 @@
         <script setup>
 
+
         const props = defineProps({
                     cotizacion: {
                         type: Object,
                         required: true,
         
-    }
+                    },
+               
+            
 })
 
 
         </script>
 <template>
-  <div class="contenedor-resultado">
+  <div 
+
+  class="contenedor-resultado">
 
     <h2>Cotizacion</h2>
 
     <div class="resultado">
-      <img :src="'https://cryptocompare.com/' + cotizacion.IMAGEURL" 
+      <img 
+      :src="'https://cryptocompare.com/' + cotizacion.IMAGEURL" 
       alt="imagen cripto">
       <div class="resul-p">
         <p>Precio actual : <span>{{ cotizacion.PRICE }}</span></p>
